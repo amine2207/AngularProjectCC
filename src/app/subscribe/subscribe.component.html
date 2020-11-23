@@ -7,29 +7,42 @@
 </head>
 <body>
     
-    <form action="" style="border:1px solid #ccc">
+    <form [formGroup]="subscribe_group" style="border:1px solid #ccc">
         <div class="container">
           <h1 class="p_subscribe">S'inscrire</h1>
           <p>S'il vous plaît, remplissez le formulaire par des valeurs valides</p>
           <hr>
-      
-
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Entrer votre adresse ..." name="email" required>
-      
-          <label for="email"><b>Nom d'utilisateur</b></label>
-          <input type="text" placeholder="Entrer votre nom d'utilisateur ..." name="email" required>
-      
+          <input type="text" formControlName="email" placeholder="Entrer votre adresse ..." name="email" [(ngModel)]="reader.email">
+          
+            <div *ngIf="email.errors?.required && email.touched">
+              <p>Email Obligatoire</p>
+            </div>
+            <div *ngIf="email.errors?.pattern">
+            <p>Vous devez entrer une adresse valide</p>
+          </div>
+        
+          <label for="username"><b>Nom d'utilisateur</b></label>
+          <input type="text"  formControlName="username" placeholder="Entrer votre nom d'utilisateur ..." name="username" [(ngModel)]="reader.username">
+          <div *ngIf="username.errors?.minlength">
+            <p>Le username doit contenir au moins 3 caractéres </p>
+          </div>   
+        
           <label for="psw"><b>Mot de passe</b></label>
-          <input type="password" placeholder="Entrer votre mot de passe ..." name="psw" required>
-      
-          <label for="psw-repeat"><b>Répéter votre mot de passe </b></label>
-          <input type="password" placeholder="Confirmer votre mot de passe ..." name="psw-repeat" required>
-                
+          <input type="password"  formControlName="motdepasse" placeholder="Entrer votre mot de passe ..." name="motdepasse" [(ngModel)]="reader.motdepasse">
+          <div *ngIf="motdepasse.touched && motdepasse.errors?.required"> 
+            <p>Champ Obligatoire</p>
+          </div>   
+          <div *ngIf="motdepasse.errors?.minLength"> 
+            <p>Le mot de passe doit contenir au moins 4 caractéres</p>
+          </div>   
+          
+
           <div class="clearfix">
             <button type="button" class="cancelbtn">Vider les champs</button>
-            <button type="submit" class="signupbtn">S'inscrire</button>
+            <button (click)="save()"  class="signupbtn">S'inscrire</button>
           </div>
+          
         </div>
       </form>
 </body>
