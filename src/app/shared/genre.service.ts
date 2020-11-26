@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { reader } from '../model/reader';
+import { Genre } from '../model/Genre';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SubscribeService {
+export class GenreService {
 
-  url: string = "http://localhost:3000/reader";
+  genreUrl = "http://localhost:3000/genre";
   httpOptions = {
     headers: new HttpHeaders({
     'Content-Type' : 'application/json'
@@ -16,7 +16,8 @@ export class SubscribeService {
   }
   constructor(private http: HttpClient) { }
 
-  Subscribe_Reader(reader: reader): Observable<reader>{
-    return this.http.post<reader>(this.url, reader, this.httpOptions);
+  addGenre(genre: Genre): Observable<Genre>
+  {
+    return this.http.post<Genre>(this.genreUrl, genre, this.httpOptions);
   }
 }

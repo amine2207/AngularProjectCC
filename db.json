@@ -16,18 +16,9 @@
   "profile": {
     "name": "typicode"
   },
-  "reader": [
+  "Genre": [
     {
-      "email": "aminlaribi18@gmail.com",
-      "username": "amine2207",
-      "motdepasse": "azerty",
       "id": 1
-    },
-    {
-      "email": "mohamedamine.laribi@esprit.tn",
-      "username": "mohamedamine.laribi",
-      "motdepasse": "22071996",
-      "id": 2
     }
   ]
 }
