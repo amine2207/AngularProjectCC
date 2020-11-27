@@ -8,7 +8,7 @@ import { Genre } from '../model/Genre';
 })
 export class GenreService {
 
-  genreUrl = "http://localhost:3000/genre";
+  genreUrl = "http://localhost:3000/Genre";
   httpOptions = {
     headers: new HttpHeaders({
     'Content-Type' : 'application/json'
@@ -20,4 +20,24 @@ export class GenreService {
   {
     return this.http.post<Genre>(this.genreUrl, genre, this.httpOptions);
   }
+  
+  getGenres(): Observable<Genre[]>
+  {
+    return this.http.get<Genre[]>(this.genreUrl);
+  }
+
+  updateGenre(id: number, u: Genre): Observable<Genre>
+  {
+    return this.http.put<Genre>(this.genreUrl + '/' + id, u, this.httpOptions);
+  }
+
+  deleteGenre(g: Genre |number):  Observable<Genre>
+  {
+    const identifiant = typeof g === 'number' ? g : g.id;
+    const url = this.genreUrl + '/' + identifiant;
+    return this.http.delete<Genre>(url);
+  }
+
+
+
 }

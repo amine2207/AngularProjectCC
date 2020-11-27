@@ -9,6 +9,7 @@ import { GenreComponent } from './genre/genre.component';
 import { JeuxComponent } from './jeux/jeux.component';
 import { FeedBackComponent } from './feed-back/feed-back.component';
 import { AddGenreComponent } from './add-genre/add-genre.component';
+import { UpdateGenreComponent } from './update-genre/update-genre.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
     JeuxComponent,
     FeedBackComponent,
     AddGenreComponent,
+    UpdateGenreComponent,
   ],
   imports: [
     BrowserModule,

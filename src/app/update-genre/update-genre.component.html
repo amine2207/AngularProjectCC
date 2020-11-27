@@ -9,9 +9,16 @@
     <app-menu></app-menu>
 <br>
 
-<form style="width: 1000px; padding-left:400px"  #form="ngForm">
-    <h1>Ajouter Un nouveau Genre</h1>
+<form style="width: 1000px; padding-left:400px"  #form="ngForm" >
+    <h1>Modifier Un  Genre existant</h1>
 <hr>
+<input class="form-control form-control-lg"   
+    type="text" 
+    placeholder="Mettez içi le nom du genre ..." 
+    id="inputLarge" 
+    name="id" 
+    [(ngModel)]="g.id"  #id="ngModel" 
+    required >
         <div class="form-group">
             <label class="col-form-label col-form-label-lg" for="inputLarge">Genre:</label>
             <input class="form-control form-control-lg" 
@@ -59,8 +66,8 @@
             <img [src]="img_url" width="200px">
 
           </div>
-
-        <button  [disabled]="form.invalid" (click)="save()" type="button" class="btn btn-outline-info btn-lg btn-block">Sauvegarder</button>
+         
+        <button  [disabled]="form.invalid" type="submit" (click)="update()"class="btn btn-outline-info btn-lg btn-block">Appliquer les modifications</button>
 </form>
 </body>
 </html>

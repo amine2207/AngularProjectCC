@@ -18,7 +18,22 @@
   },
   "Genre": [
     {
+      "genre": "Aventure",
+      "description": "Description Aventure",
+      "image": "C:\\fakepath\\aventure.png",
       "id": 1
+    },
+    {
+      "genre": "Sport",
+      "description": "Description Sport",
+      "image": "C:\\fakepath\\sport.png",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "genre": "Test",
+      "description": "Test",
+      "image": "C:\\fakepath\\aventure.png"
     }
   ]
 }

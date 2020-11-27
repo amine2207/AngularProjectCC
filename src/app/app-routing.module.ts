@@ -6,6 +6,8 @@ import { FeedBackComponent } from './feed-back/feed-back.component';
 import { GenreComponent } from './genre/genre.component';
 import { JeuxComponent } from './jeux/jeux.component';
 import { MenuComponent } from './menu/menu.component';
+import { Genre } from './model/Genre';
+import { UpdateGenreComponent } from './update-genre/update-genre.component';
 
 
 const routes: Routes = [
@@ -13,8 +15,9 @@ const routes: Routes = [
   { path: 'genres', component: GenreComponent },
   { path: 'jeux', component: JeuxComponent },
   { path: 'feedback', component: FeedBackComponent },
-  { path: 'add-genre', component: AddGenreComponent}
-  
+  { path: 'add-genre', component: AddGenreComponent },
+  { path: 'updategenre/:id', component: UpdateGenreComponent},
+  {path : 'delete_genre/:id', component: GenreComponent}
 ];
 
 @NgModule({
