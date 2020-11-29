@@ -32,10 +32,10 @@ export class JeuxService {
     return this.http.put<Jeux>(this.jeuxUrl + '/' + id, j, this.httpOptions);
   }
 
-  deleteJeu(j: Jeux |number):  Observable<Jeux>
+  deleteJeu(j: Jeux | number):  Observable<Jeux>
   {
     const identifiant = typeof j === 'number' ? j : j.id;
-    const url = this.jeuxUrl + '/' + identifiant;
+    const url = this.jeuxUrl+'/'+identifiant;
     return this.http.delete<Jeux>(url);
   }
 

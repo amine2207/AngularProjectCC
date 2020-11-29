@@ -11,8 +11,9 @@ import { GenreService } from '../shared/genre.service';
 export class UpdateGenreComponent implements OnInit {
   img_url = "../assets/images/";
 
-  listUsers: Genre[] = [];
-  g: Genre= new Genre();
+  listgenres: Genre[] = [];
+  g: Genre = new Genre();
+  
   constructor(private gs: GenreService,private router: Router) { 
     
   }

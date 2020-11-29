@@ -12,6 +12,7 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
 import { UpdateGenreComponent } from './update-genre/update-genre.component';
 import { NgSrcModule } from 'ng-src';
 import { AddJeuComponent } from './add-jeu/add-jeu.component';
+import { UpdateJeuComponentComponent } from './update-jeu-component/update-jeu-component.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AddJeuComponent } from './add-jeu/add-jeu.component';
     AddGenreComponent,
     UpdateGenreComponent,
     AddJeuComponent,
+    UpdateJeuComponentComponent,
   ],
   imports: [
     BrowserModule,

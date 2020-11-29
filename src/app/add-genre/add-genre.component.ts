@@ -18,12 +18,20 @@ export class AddGenreComponent implements OnInit {
 
   url = "C:/workspace/AngularProjectCC/src/assets/images/";
   img_url = "../assets/images/";
-  constructor(private genre_service: GenreService, private router:Router) { 
+  listgenres: Genre[] = [];
+  constructor(private genre_service: GenreService, private router:Router, private gs:GenreService) { 
 
     
   }
 
   ngOnInit(): void {
+    this.gs.getGenres().subscribe(
+      (data:Genre[])=>{this.listgenres= data
+      }, (err) => {
+        console.log(err);
+    }
+    );
+   
   }
 
   save(){ this.genre_service.addGenre(this.g).subscribe(

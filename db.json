@@ -31,9 +31,9 @@
     },
     {
       "id": 3,
-      "genre": "Test",
-      "description": "Test",
-      "image": "C:\\fakepath\\aventure.png"
+      "genre": "Arcade",
+      "description": "Arcade",
+      "image": "C:\\fakepath\\157429-image2_450x450.png"
     }
   ],
   "Jeux": [
@@ -61,6 +61,35 @@
       "id": "5",
       "nom": "fifa",
       "description": "koora"
+    },
+    {
+      "id": "6",
+      "nom": "test test",
+      "description": "Test"
+    },
+    {
+      "id": "7",
+      "nom": "test test",
+      "description": "Test"
+    },
+    {
+      "id": "8",
+      "nom": "test test",
+      "description": "Test",
+      "prix": "22"
+    },
+    {
+      "id": "9",
+      "nom": "test test",
+      "description": "description",
+      "prix": "200"
+    },
+    {
+      "id": "10",
+      "nom": "Pes 2021",
+      "description": "Football",
+      "prix": "500",
+      "genre_id": "2"
     }
   ]
 }

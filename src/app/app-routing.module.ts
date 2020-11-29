@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'add-genre', component: AddGenreComponent },
   { path: 'updategenre/:id', component: UpdateGenreComponent},
   { path: 'delete_genre/:id', component: GenreComponent },
-  {path : 'deletejeu/:id',component:JeuxService}
+  { path: 'deletejeu/:id', component: JeuxComponent },
 ];
 
 @NgModule({

@@ -1,24 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux</title>
 </head>
+
 <body>
     <app-menu></app-menu>
     <br>
     <br>
     <br>
     <app-add-jeu (add)="add_jeu($event)"></app-add-jeu>
-<hr>
-    <ul>
-        <li *ngFor="let i of listjeux" >
-                {{i.id}}
-                {{i.nom}}
-                {{i.description}}
-          <a [routerLink]="['/deletejeu/',i.id]"> <button (click)="delete(i.id)">Supprimer</button>  </a>  
-        </li>
-    </ul>
+    <hr>
+
+    <button (click)="getAll()" class="btn btn-info">Voir tous les jeux</button>
+    <div class="container_g">
+
+        <div class="card" *ngFor="let item of listjeu">
+
+
+            <div class="container">
+                <h4><b>Nom du jeu :{{item.nom}}</b></h4>
+                <p>Identifiant du jeu : {{item.id}}</p>
+                <p>Prix  jeu : {{item.prix}}</p>
+                <p>Genre du jeu : {{item.genre_id}}</p>
+
+
+            </div>
+            <hr>
+            <div class="container_b">
+                <div style="margin-left: 15px;"></div>
+                <button class="btn btn-outline-danger" (click)="delete(item.id)" [routerLink]="['/deletejeu/',item.id]">Supprimer</button>
+                <div style="margin-left: 15px;"></div>
+                <a>
+                    <button class="btn btn-outline-warning">Modifier</button>
+                </a>
+                <div style="margin-left: 15px;"></div>
+                <a>
+                    <button class="btn btn-outline-info">Voir Détail</button>
+                </a>
+
+
+
+
+            </div>
+            <br>
+
+
+
+        </div>
+    </div>
+
 </body>
+
 </html>

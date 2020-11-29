@@ -1,7 +1,9 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Genre } from '../model/Genre';
 import { Jeux } from '../model/jeux';
+import { GenreService } from '../shared/genre.service';
 import { JeuxService } from '../shared/jeux.service';
 
 @Component({
@@ -14,10 +16,11 @@ export class JeuxComponent implements OnInit {
 
   jeux_form: FormBuilder = new FormBuilder();
   jeux_group: FormGroup;
-
+  listgenres: Genre[] = [];
+  g: Genre = new Genre();
   
-  listjeux: Jeux[] = [];
-  constructor(private js: JeuxService, private router: Router) {
+  listjeu: Jeux[] = [];
+  constructor(private js: JeuxService, private router: Router, private gs:GenreService) {
     this.jeux_group = this.jeux_form.group({
       id: new FormControl('', Validators.required),
       nom: new FormControl('', [Validators.required, Validators.pattern("[a-z][A-Z]*")]),
@@ -31,14 +34,7 @@ export class JeuxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.js.getJeu().subscribe(
-      resultat => (data: Jeux[]) =>
-      {
-        this.listjeux = data
-   }, (err) => {
-     console.log(err);
- }
- );
+  
   }
 
   get id() { return this.jeux_group.get('id'); }
@@ -59,5 +55,10 @@ export class JeuxComponent implements OnInit {
     }, (err) => {
       console.log(err);
   });
+  }
+ 
+  getAll() {
+    this.js.getJeu().subscribe(
+    (data:Jeux[])=>{this.listjeu = data});
   }
 }
