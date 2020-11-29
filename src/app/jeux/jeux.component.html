@@ -10,7 +10,15 @@
     <br>
     <br>
     <br>
-    <button  type="button" class="btn btn-primary btn-lg">Ajouter un nouveau Genre</button>
-    
+    <app-add-jeu (add)="add_jeu($event)"></app-add-jeu>
+<hr>
+    <ul>
+        <li *ngFor="let i of listjeux" >
+                {{i.id}}
+                {{i.nom}}
+                {{i.description}}
+          <a [routerLink]="['/deletejeu/',i.id]"> <button (click)="delete(i.id)">Supprimer</button>  </a>  
+        </li>
+    </ul>
 </body>
 </html>

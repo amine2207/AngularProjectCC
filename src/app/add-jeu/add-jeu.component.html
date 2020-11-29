@@ -1,0 +1,35 @@
+<p>add-jeu works!</p>
+<form [formGroup]="jeux_group">
+    <legend>
+        Jeu Form
+    </legend>
+
+    <label>Id</label>
+    <input type="text"
+           formControlName="id"
+           [(ngModel)]="jeux.id"
+           name="id"/>
+    <div *ngIf="id.invalid && id.touched">
+        <div *ngIf="id.errors?.required">
+            <p>Invalide</p>
+        </div>
+    </div>
+    <br>
+    <label>Nom</label>
+    <input type="text" 
+            formControlName="nom"
+            [(ngModel)]="jeux.nom"
+            name="nom"/>
+          
+    <br>
+    <label>Description</label>
+    <input type="text"
+           formControlName="description"
+           name="description"
+           [(ngModel)]="jeux.description"
+
+           />
+        
+            <br>
+    <button (click)="add_jeu()" >Ajouter</button>
+</form>

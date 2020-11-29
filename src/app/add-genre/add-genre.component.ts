@@ -16,7 +16,7 @@ export class AddGenreComponent implements OnInit {
   
   g: Genre = new Genre();
 
-  url = "../../assets/images/";
+  url = "C:/workspace/AngularProjectCC/src/assets/images/";
   img_url = "../assets/images/";
   constructor(private genre_service: GenreService, private router:Router) { 
 

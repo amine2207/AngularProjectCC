@@ -10,6 +10,8 @@ import { JeuxComponent } from './jeux/jeux.component';
 import { FeedBackComponent } from './feed-back/feed-back.component';
 import { AddGenreComponent } from './add-genre/add-genre.component';
 import { UpdateGenreComponent } from './update-genre/update-genre.component';
+import { NgSrcModule } from 'ng-src';
+import { AddJeuComponent } from './add-jeu/add-jeu.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,16 @@ import { UpdateGenreComponent } from './update-genre/update-genre.component';
     FeedBackComponent,
     AddGenreComponent,
     UpdateGenreComponent,
+    AddJeuComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgSrcModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Jeux } from '../model/jeux';
+import { JeuxService } from '../shared/jeux.service';
 
 @Component({
   selector: 'app-jeux',
@@ -6,10 +10,54 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jeux.component.css']
 })
 export class JeuxComponent implements OnInit {
+  @Output() add = new EventEmitter<Jeux>();
 
-  constructor() { }
+  jeux_form: FormBuilder = new FormBuilder();
+  jeux_group: FormGroup;
 
-  ngOnInit(): void {
+  
+  listjeux: Jeux[] = [];
+  constructor(private js: JeuxService, private router: Router) {
+    this.jeux_group = this.jeux_form.group({
+      id: new FormControl('', Validators.required),
+      nom: new FormControl('', [Validators.required, Validators.pattern("[a-z][A-Z]*")]),
+      description: new FormControl('', Validators.pattern("[a-z][A-Z]*")),
+      couverture: new FormControl('', Validators.required),
+      prix: new FormControl('', [Validators.required, Validators.pattern("[1-9][0-9]*")]),
+      genre_id: new FormControl('', Validators.required),
+      
+    });
+    
   }
 
+  ngOnInit(): void {
+    this.js.getJeu().subscribe(
+      resultat => (data: Jeux[]) =>
+      {
+        this.listjeux = data
+   }, (err) => {
+     console.log(err);
+ }
+ );
+  }
+
+  get id() { return this.jeux_group.get('id'); }
+  get nom() { return this.jeux_group.get('nom'); }
+  get description() { return this.jeux_group.get('description'); }
+  get couverture() { return this.jeux_group.get('couverture'); }
+  get prix() { return this.jeux_group.get('prix'); }
+  get genre_id() { return this.jeux_group.get('genre_id'); }
+  
+  add_jeu(j:Jeux) {
+    this.add.emit(j);
+  }
+
+  delete(id) {
+    this.js.deleteJeu(id).subscribe(resultat => {
+      alert("jeu supprimé");
+      this.router.navigateByUrl('/jeux');
+    }, (err) => {
+      console.log(err);
+  });
+  }
 }

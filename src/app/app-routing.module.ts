@@ -7,6 +7,7 @@ import { GenreComponent } from './genre/genre.component';
 import { JeuxComponent } from './jeux/jeux.component';
 import { MenuComponent } from './menu/menu.component';
 import { Genre } from './model/Genre';
+import { JeuxService } from './shared/jeux.service';
 import { UpdateGenreComponent } from './update-genre/update-genre.component';
 
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'feedback', component: FeedBackComponent },
   { path: 'add-genre', component: AddGenreComponent },
   { path: 'updategenre/:id', component: UpdateGenreComponent},
-  {path : 'delete_genre/:id', component: GenreComponent}
+  { path: 'delete_genre/:id', component: GenreComponent },
+  {path : 'deletejeu/:id',component:JeuxService}
 ];
 
 @NgModule({

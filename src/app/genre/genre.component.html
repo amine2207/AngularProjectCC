@@ -19,9 +19,8 @@
 <div class ="container_g">
     
     <div class="card" *ngFor="let item of listgenres" >
-        <img src="../../assets/images/"
-             style="width:100%"> 
-            
+         
+      <img [src]="sanitizeImageUrl(item.image)" width="200px">
         <div class="container">
           <h4><b>{{item.genre}}</b></h4> 
           <p>{{item.description}}</p> 
@@ -36,9 +35,9 @@
      </div>
      <br>
         
-    </div>
+    
 
-
+</div>
 </div>
 
 </body>

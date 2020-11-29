@@ -4,4 +4,5 @@ export class Genre
   genre: string;
   description: string;
   image: Blob;
+  
 }
