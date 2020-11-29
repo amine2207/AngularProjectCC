@@ -34,6 +34,12 @@
       "genre": "Arcade",
       "description": "Arcade",
       "image": "C:\\fakepath\\157429-image2_450x450.png"
+    },
+    {
+      "genre": "Solo",
+      "description": "description",
+      "image": "C:\\fakepath\\91247.png",
+      "id": 4
     }
   ],
   "Jeux": [
