@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedBackComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
+ 
 }

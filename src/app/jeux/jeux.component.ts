@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Genre } from '../model/Genre';
@@ -12,17 +12,18 @@ import { JeuxService } from '../shared/jeux.service';
   styleUrls: ['./jeux.component.css']
 })
 export class JeuxComponent implements OnInit {
+  @Input() color;
   @Output() add = new EventEmitter<Jeux>();
-
+  msg;
   jeux_form: FormBuilder = new FormBuilder();
   jeux_group: FormGroup;
   listgenres: Genre[] = [];
   g: Genre = new Genre();
   
+
   listjeu: Jeux[] = [];
   constructor(private js: JeuxService, private router: Router, private gs:GenreService) {
     this.jeux_group = this.jeux_form.group({
-      id: new FormControl('', Validators.required),
       nom: new FormControl('', [Validators.required, Validators.pattern("[a-z][A-Z]*")]),
       description: new FormControl('', Validators.pattern("[a-z][A-Z]*")),
       couverture: new FormControl('', Validators.required),
@@ -37,7 +38,6 @@ export class JeuxComponent implements OnInit {
   
   }
 
-  get id() { return this.jeux_group.get('id'); }
   get nom() { return this.jeux_group.get('nom'); }
   get description() { return this.jeux_group.get('description'); }
   get couverture() { return this.jeux_group.get('couverture'); }
@@ -48,9 +48,10 @@ export class JeuxComponent implements OnInit {
     this.add.emit(j);
   }
 
-  delete(id) {
+  delete(id: number)
+  {
     this.js.deleteJeu(id).subscribe(resultat => {
-      alert("jeu supprimé");
+      alert("Jeu supprimé");
       this.router.navigateByUrl('/jeux');
     }, (err) => {
       console.log(err);
@@ -61,4 +62,15 @@ export class JeuxComponent implements OnInit {
     this.js.getJeu().subscribe(
     (data:Jeux[])=>{this.listjeu = data});
   }
+
+  like(): void
+  {
+    this.msg ="#1D6421";
+  }
+
+  dislike(): void
+  {
+    this.msg = "red";
+  }
+
 }

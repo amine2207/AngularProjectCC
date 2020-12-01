@@ -9,6 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { Genre } from './model/Genre';
 import { JeuxService } from './shared/jeux.service';
 import { UpdateGenreComponent } from './update-genre/update-genre.component';
+import { UpdateJeuComponentComponent } from './update-jeu-component/update-jeu-component.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'updategenre/:id', component: UpdateGenreComponent},
   { path: 'delete_genre/:id', component: GenreComponent },
   { path: 'deletejeu/:id', component: JeuxComponent },
+  { path: 'updatejeu/:id', component: UpdateJeuComponentComponent}
 ];
 
 @NgModule({
