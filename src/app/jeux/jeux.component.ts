@@ -20,7 +20,7 @@ export class JeuxComponent implements OnInit {
   listgenres: Genre[] = [];
   g: Genre = new Genre();
   
-
+  m = "";
   listjeu: Jeux[] = [];
   constructor(private js: JeuxService, private router: Router, private gs:GenreService) {
     this.jeux_group = this.jeux_form.group({
@@ -65,12 +65,15 @@ export class JeuxComponent implements OnInit {
 
   like(): void
   {
-    this.msg ="#1D6421";
+    this.msg = "#1D6421";
+    this.m = "vous avez aimé ce jeu "
   }
 
   dislike(): void
   {
-    this.msg = "red";
+    this.msg = "#A93417";
+    this.m = "il semble que vous n'avez pas aimé ce jeu "
+
   }
 
 }
